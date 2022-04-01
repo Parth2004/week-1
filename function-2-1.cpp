@@ -1,20 +1,14 @@
 #include <iostream>
 using namespace std;
 
-int *readNumbers(){
-    int *month; // declare the dynamic array
-    month = new int[10]; // giving size to it
- 
-    for (int i = 0; i < 10; i++) // taking the input from the user
-    {
-        cout << "Enter the " << i + 1 << " month:";
-        cin >> month[i];
-    }
-    return month; // return the pointer of the array
+string lookup_month(int month){
+
+for (int i = 0; i < month; i++) {
+    cout << "Enter the Month";
+    cin >> month;
 }
 
 
-string lookup_month(int month)
 {
 
     for (int i = 0; i < month; i++) // for loop repeates the length time
@@ -56,10 +50,11 @@ string lookup_month(int month)
             cout << i << " " << month << " Nov " << endl;
             break;
         case 12:
-            cout << i << "" << month << "Dec" << endl;
+            cout << i << " " << month << "Dec" << endl;
         }
 
 }
     }
+}
 
 
