@@ -1,22 +1,31 @@
-#include<iostream>
+#include <iostream>
+#include <climits>
+
 using namespace std;
 
-//array to store all months
-string arr[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-
-//function to get month from index
-string lookup_month(int month){
-        
-        //variable to store month
-        string str = "";
-        
-        //if month is valid return from array
-        if(month >= 1 && month <= 12)
-                str = arr[month-1];
-        //otherwise set month as invalid        
-        else
-                str = "invalid month";
-    
-        return str;
-        
+int* max_min(int** vals, int num_rows, int num_cols) {
+        // init the vars to keep track of min, max vals with worst possible values
+        int max = -INT_MAX;
+        int min = INT_MAX;
+        // traversing the matrix (2d array)
+        for(int i = 0; i < num_rows; i++) {
+                for(int j = 0; j < num_rows; j++) {
+                        // checking if the val is greater then the max 
+                        // encountered so far or smaller than the min
+                        // if yes, max, min vars are updated appropriately
+                        if(vals[i][j] > max) {
+                                max = vals[i][j];
+                        }
+                        if(vals[i][j] < min) {
+                                min = vals[i][j];
+                        }
+                }
+        }
+        // creating return array
+        int* ret = new int[2];
+        ret[0] = max;
+        ret[1] = min;
+        return ret;
 }
+
+

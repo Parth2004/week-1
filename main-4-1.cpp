@@ -1,43 +1,45 @@
+#include <iostream>
+#include <climits>
 
-
-#include<iostream>
 using namespace std;
 
-//array to store all months
-string arr[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-
-//function to get month from index
-string lookup_month(int month){
-        
-        //variable to store month
-        string str = "";
-        
-        //if month is valid return from array
-        if(month >= 1 && month <= 12)
-                str = arr[month-1];
-        //otherwise set month as invalid        
-        else
-                str = "invalid month";
-        
-        //return month
-        return str;
-        
+int* max_min(int** vals, int num_rows, int num_cols) {
+        // init the vars to keep track of min, max vals with worst possible values
+        int max = -INT_MAX;
+        int min = INT_MAX;
+        // traversing the matrix (2d array)
+        for(int i = 0; i < num_rows; i++) {
+                for(int j = 0; j < num_rows; j++) {
+                        // checking if the val is greater then the max 
+                        // encountered so far or smaller than the min
+                        // if yes, max, min vars are updated appropriately
+                        if(vals[i][j] > max) {
+                                max = vals[i][j];
+                        }
+                        if(vals[i][j] < min) {
+                                min = vals[i][j];
+                        }
+                }
+        }
+        // return array
+        int* back = new int[2];
+        back[0] = max;
+        back[1] = min;
+        return back;
 }
 
 
-
-
-//test function
-int main(){
+int main() {
         
-        //create a loop to call lookup_month repeatedly
-        for(int i=0;i<14;i++){
-                
-                //call lookup_month
-                cout << "calling lookup_month(" << i << ") =>    " << lookup_month(i) << endl;
-                
-        }
-        
+        int row1[] = {10, 15, 99};
+        int row2[] = {100, 5, 73};
+        int row3[] = {23, 56, 1};
+        int* vals[] = {row1, row2, row3};
+        int nrows = 3;
+        int ncols = 3;
+        // function call
+        int *mm = max_min(vals, nrows, ncols);
+        // outputting the returned array
+        cout << mm[0] << " " << mm[1] << endl;
         return 0;
-        
 }

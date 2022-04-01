@@ -18,8 +18,7 @@ string lookup_month(int month){
         //otherwise set month as invalid        
         else
                 str = "invalid month";
-        
-        //return month
+    
         return str;
         
 }
