@@ -10,9 +10,7 @@ int* max_min(int** vals, int num_rows, int num_cols) {
         // traversing the matrix (2d array)
         for(int i = 0; i < num_rows; i++) {
                 for(int j = 0; j < num_rows; j++) {
-                        // checking if the val is greater then the max 
-                        // encountered so far or smaller than the min
-                        // if yes, max, min vars are updated appropriately
+                        
                         if(vals[i][j] > max) {
                                 max = vals[i][j];
                         }
